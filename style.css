@@ -22,6 +22,30 @@ img{
     object-fit: cover;
 }
 
+p{
+    font-weight: 400;
+}
+
+em{
+    font-style: normal;
+}
+p.title{
+    font-size: 25px;
+    color: #191919;
+    margin-bottom: 20px;
+    position: relative;
+}
+p.title::before{
+    content: '';
+    width: 100px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: #282525;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
 .banniere{
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/banniere.webp);
     background-repeat: no-repeat;
@@ -202,7 +226,7 @@ a{
     font-family: 'Poppins', sans-serif;
 }
 .container-btn div:last-child{
-    background-color: rgba(0, 0, 0, 0.007);
+    background-color: rgba(0, 0, 0, 0.277);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     padding: 10px;
@@ -275,7 +299,7 @@ a{
     color: white;
     font-size: 20px;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.655);
+    background-color: rgba(0, 0, 0, 0.305);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
@@ -289,23 +313,25 @@ a{
 }
 
 #section-apropos .container-apropos header{
-    flex: 1.5;
+    flex: 1.3;
 }
 .container-apropos header h1{
     font-size: 2.3em;
 }
 #section-apropos .container-apropos .apropos-article{
-    flex: 4;
+    flex: 2;
 }
 .container-apropos .apropos-article article{
-    font-size: 1.4em;
     font-family: 'Poppins', sans-serif;
     line-height: 32px;
-    word-break: keep-all;
+}
+.container-apropos .apropos-article article p{
+    max-width: 700px;
 }
 .apropos-article article ul{
+    max-width: 700px;
     list-style-position: inside;
-    margin-top: 30px;
+    margin-top: 8px;
 }
 .apropos-article article ul li::first-letter{
     text-transform: uppercase;
@@ -314,14 +340,13 @@ a{
     font-size: 1.5em;
 }
 .apropos-article article .flex-statistique{
-    margin-top: 50px;
-    justify-content: space-evenly;
+    margin-top: 30px;
+    justify-content: space-between;
     gap: 30px;
 }
 
 .apropos-article article .flex-statistique section h2{
-    margin-bottom: 15px;
-    font-weight: 500;
+    font-weight: 700;
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
@@ -332,27 +357,11 @@ a{
 
 /* La section destinations */
 #section-destination{
-    padding: 100px 30px;
+    padding: 100px 20px;
     background-color: #f1f2f6;
 }
 #section-destination h1{
     font-size: 2.3em;
-}
-#section-destination header p.title{
-    font-size: 25px;
-    color: #191919;
-    margin-bottom: 20px;
-    position: relative;
-}
-#section-destination header p.title::before{
-    content: '';
-    width: 100px;
-    height: 4px;
-    border-radius: 5px;
-    background-color: #282525;
-    position: absolute;
-    left: 0;
-    bottom: 0;
 }
 #section-destination header .flex-destination{
     justify-content: space-between;
@@ -366,7 +375,8 @@ a{
     align-self: flex-end;
 }
 #section-destination header .flex-destination div:nth-child(2) p{
-    font-size: 1.5em;
+    font-size: 17px;
+    
 }
 #section-destination .grid-destination{
     margin: 30px 0 50px;
@@ -382,9 +392,8 @@ a{
 }
 
 #section-destination .grid-destination .element-grid-destination img{
+    max-height: 450px;
     height: 400px;
-    min-height: 100%;
-    max-height: 500px;
 }
 #section-destination .grid-destination .element-grid-destination .article-destionation-relative:hover img{
     filter: saturate(20%);
@@ -407,18 +416,17 @@ a{
     color: white;
     padding: 20px;
     font-family: 'Poppins', sans-serif;
-    cursor: pointer;
     transform: translateY(800px);
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease-in-out;
     border-radius: 0 0 10px 10px;
 }
-.grid-destination .element-grid-destination .article-destionation-relative .content-absolute h2{
-    font-size: 1.9em;
+.element-grid-destination .article-destionation-relative .content-absolute h2{
+    font-size: 1.5em;
 }
-.grid-destination .element-grid-destination .article-destionation-relative .content-absolute p{
-    font-size: 18px;
+.element-grid-destination .article-destionation-relative .content-absolute p{
+    line-height: 25px;
 }
 
 .container-btn{
@@ -438,22 +446,83 @@ a{
     transform: translateY(5px);
 }
 
+/* Section galleries */
+#section-gallery{
+    padding: 100px 40px;
+}
+#section-gallery .grid-gallery{
+    display: grid;
+    grid-template-columns: 15% 80%;
+    gap: 40px;
+}
+.element1-gallery{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.element1-gallery .none-mobile a,
+.element2-gallery .none-desktop a{
+    display: flex;
+    gap: 2px;
+    color: black;
+    font-weight: 600;
+    position: absolute;
+}
+.element1-gallery .none-mobile a::before,
+.element2-gallery .none-desktop a::before{
+    content: '';
+    width: 100px;
+    height: 2px;
+    border-radius: 5px;
+    background-color: #282525;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.element2-gallery{
+    margin-top: 40px;
+}
+.element2-gallery .none-desktop{
+    display: none;
+}
+.element2-gallery div .size-large{
+    font-size: 25px;
+    line-height: 32px;
+}
+#section-gallery .flex-gallery2{
+    margin-top: 30px;
+    gap: 20px;
+}
+#section-gallery .flex-gallery2 img[alt='gombe']{
+    width: min(600px, 100%);
+}
+#section-gallery .flex-gallery2 img{
+    height: 400px;
+    border-radius: 8px;
+}
+#section-gallery .flex-gallery2 img:hover{
+    opacity: .9;
+}
+
+
+
 
 /* Partie footer */
 #allez-plus-loin{
-    padding: 100px 40px;
+    padding: 100px 20px;
 }
 #allez-plus-loin header h1{
-    text-align: center;
     font-size: 2.3em;
     color: white;
     text-transform: capitalize;
+    text-align: center;
 }
 #allez-plus-loin .container-btn a{
     background-color: white;
     color: black;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.203), 0 5px 3px black;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.203), 0 2px 3px black;
 }
 #allez-plus-loin .container-btn a:hover{
     background-color: black;
@@ -463,7 +532,7 @@ a{
 .banniere2{
     background-image: url(images/banniere2.webp);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: top left;
 }
 footer{
     padding: 50px 30px 20px;
@@ -478,7 +547,6 @@ footer h1{
 }
 footer p{
     color: white;
-    font-size: 18px;
     text-align: center;
 }
 
@@ -568,7 +636,7 @@ footer p{
         flex: 1;
     }
     .container-apropos header h1{
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         text-align: center;
     }
     .container-apropos .apropos-article{
@@ -583,6 +651,33 @@ footer p{
     #section-destination .grid-destination .element1{
         grid-column: auto;
     }
+
+    /* Section galleries */
+    #section-gallery{
+        padding: 100px 20px;
+    }
+    #section-gallery .grid-gallery{
+        grid-template-columns: 100%;
+    }
+    .element1-gallery{
+        height: auto;
+        display:  block;
+    }
+    .element1-gallery .none-mobile{
+        display: none;
+    }
+    .element2-gallery{
+        margin-top: 0px;
+    }
+    .element2-gallery .none-desktop{
+        display: flex;
+        justify-content: end;
+        margin-bottom: 50px;
+    }
+    #section-gallery .flex-gallery2 img{
+        width: 100%;
+        height: 300px;
+    }
    
 }
 
@@ -592,13 +687,31 @@ footer p{
         flex-direction: column;
         gap: 40px;
     }
+    .grid-destination .element-grid-destination .article-destionation-relative{
+        background-color: white;
+    }
     .grid-destination .element-grid-destination .article-destionation-relative .content-absolute{
-        top: 0;
-        display: flex;
+        position: static;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        background-color: white;
+        padding: 10px 20px;
+        color:#191818;
+        
+    }
+    #section-destination .grid-destination .element-grid-destination img{
+        max-height: 450px;
+        height: 250px;
+        border-radius: 0;
+    }
+    /* Section galleries */
+    #section-gallery .flex-gallery2{
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        margin-top: 30px;
+        gap: 20px;
+    }
+    #section-gallery .flex-gallery2 img[alt='gombe']{
+        width: 100%;
     }
 }
